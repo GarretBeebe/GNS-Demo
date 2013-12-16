@@ -52,12 +52,6 @@ GEM
     execjs (2.0.0)
     flot-rails (0.0.4)
       jquery-rails
-    geocoder (1.1.8)
-    geokit (1.6.5)
-      multi_json
-    geokit-rails3 (0.1.5)
-      geokit (~> 1.5)
-      rails (~> 3.0)
     heroku (2.39.5)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -173,8 +167,6 @@ DEPENDENCIES
   chronic
   coffee-rails (~> 3.1.0)
   flot-rails
-  geocoder
-  geokit-rails3
   heroku
   jbuilder
   jquery-rails
