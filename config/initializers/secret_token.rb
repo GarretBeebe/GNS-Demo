@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-GNSDemo::Application.config.secret_token = 'd41098cc4b7046a9ecdbd9a9955fe17051e8fa7b99c30a2b5ddeaf2970071f2a51f8b2a1543b4776cbde561e58452f2d5c8b92d5e1f0b29976b22db35a02fe03'
+RailsMapTest::Application.config.secret_token = '886d39d87f2e4486319db68abbaa928b2aad5683baff1be545bde546284c5a74f1d0b86364fa1b9d6937de82f781f6fa3092f78433e7cbc495276d9b0bfb0a84'

@@ -40,26 +40,26 @@ $( document ).ready(function() {
   //     mHandler.applyStyles();
   //   });
 
-  //   $("#toggleLine").bind( "click", function() {
-  //     gHandler.getGraph(graphData, 'line', '#graph-container2');
-  //   });
+    $("#toggleLine").bind( "click", function() {
+      gHandler.getGraph(graphData, 'line', '#graph-container2');
+    });
 
-  //   $("#togglePoint").bind("click", function() {
-  //     gHandler.getGraph(graphData, 'point', '#graph-container2');
-  //   });
+    $("#togglePoint").bind("click", function() {
+      gHandler.getGraph(graphData, 'point', '#graph-container2');
+    });
 
-  //    $("#toggleArea").bind("click", function() {
-  //    gHandler.getGraph(graphData, 'area', '#graph-container2');
-  //   });
+     $("#toggleArea").bind("click", function() {
+     gHandler.getGraph(graphData, 'area', '#graph-container2');
+    });
 
-  //   $("#toggleBar").bind("click", function() {
-  //     gHandler.getGraph(graphData, 'bar', '#graph-container2');
-  //   });
+    $("#toggleBar").bind("click", function() {
+      gHandler.getGraph(graphData, 'bar', '#graph-container2');
+    });
 
-  //   $(".datafetcher").bind("click", function() {
-  //     updateData();
-  //   });
-  // }
+    $(".datafetcher").bind("click", function() {
+      updateData();
+    });
+  //}
 
   $("#tabs").tabs({
     activate: function(event, ui) {
@@ -93,9 +93,9 @@ $( document ).ready(function() {
   //   }
   // });
 
-  $("#submitDataButton").click(function() {
-    $( "#dialog-form" ).dialog( "open" );
-  });
+  // $("#submitDataButton").click(function() {
+  //   $( "#dialog-form" ).dialog( "open" );
+  // });
 
   $(function() {
     $("#popup-date").datepicker({

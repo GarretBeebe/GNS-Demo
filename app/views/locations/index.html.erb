@@ -1,0 +1,74 @@
+<div id="outer">
+    <div id="inner">
+        <div id="header">
+        <table width="100%"><tr>
+            <td>
+                 <span class="pageTitle">JourneyTracker</span>
+            </td>
+        </tr></table>
+        </div>
+
+        <div id="tabs">
+          <ul>
+            <li><span class="menuTitle"><a href="#tabs-1">KT/V</a></span></li>
+            <li><span class="menuTitle"><a href="#tabs-2">Missed Treatments </a></span></li>
+            <li><span class="menuTitle"><a href="#tabs-3">TBD</a></span></li>
+          </ul>
+          <div id="tabs-1">
+            <div id="controls">
+                <div id="panel">
+                  <span class="menuTitle">Timeframe</span>
+                  <br>
+                  <input id="startDate" class="startDate" type="textbox" value="12/01/2012" autofocus="true">
+                  <br>
+                  <input id="endDate" class="endDate" type="textbox" value="12/10/2012" autofocus="true">
+                  <br>
+                  <div id="data-types">
+                  <span class="menuTitle">Data Types</span>
+                  <ul>
+                  <li><input type="radio" name="group1" value="prescriptions" checked ="checked">Current</input></li>
+                  <li><input type="radio" name="group1" value="predicted">Predicted</input></li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            <div id="main-graph-container">
+            <div id="map-canvas" style="width:850px; height:350px"></div>
+            <div id="controls2">
+              <div id="panel2">
+                <div id="graph-container1" style="width:870px; height:130px"></div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div id="tabs-2">
+            <div id="controls">
+                <div id="panel">
+                  <span class="menuTitle">Timeframe</span>
+                  <br>
+                  <input id="startDate2" class="startDate" type="textbox" value="11/01/2013" autofocus="true">
+                  <br>
+                  <input id="endDate2" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
+                  <br>
+                  <div id="data-types">
+                  <span class="menuTitle">Data Types</span>
+                  <ul>
+                  <li><input type="radio" name="group2" value="prescriptions" checked ="checked">Current</input></li>
+                  <li><input type="radio" name="group2" value="predicted">Predicted</input></li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+           <div id="graph-container2" style="width:820px; height:350px"></div>
+          </div>
+          <div id="tabs-3">
+           <div id="other-resources">
+              <%= render :file => "/locations/links.html" %>
+           </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+

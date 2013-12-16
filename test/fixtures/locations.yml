@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lat: 37.773533
+  lng:  -122.413636
+  address: '120 blah blah street'
+  value: 8
+
+two:
+  lat:  37.773021
+  lng: -122.413009
+  address: '121 blah blah street'
+  value: 24
+
+three:
+  lat:  37.773021
+  lng: -122.413009
+  address: '122 blah blah street' 
+  value: 1
+
+four:
+  lat:  37.771964
+  lng: -122.411681
+  address: '123 blah blah street' 
+  value: 13
+
+five:
+  lat:  37.771479
+  lng: -122.411078
+  address: '124 blah blah street' 
+  value: 51

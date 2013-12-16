@@ -1,7 +1,6 @@
-GNSDemo::Application.routes.draw do
-  root :to => 'main#index'
-  match '/getTreatments', :to => 'treatments#getTreatments'
-  match '/getKTVResults', :to => 'ktvresults#getKTVResults'
-  match '/getPatients', :to => 'patients#getPatients'
-  match '/getProviders', :to => 'providers#getProviders'
+RailsMapTest::Application.routes.draw do
+  root :to => 'locations#index'
+  match '/getMapData', :to => 'locations#getMapData'
+  match '/getGraphData', :to => 'locations#getGraphData'
+  match '/addData', :to => 'locations#addData'
 end

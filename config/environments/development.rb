@@ -1,4 +1,4 @@
-GNSDemo::Application.configure do
+RailsMapTest::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -27,4 +27,6 @@ GNSDemo::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #config.serve_static_assets = true
 end
