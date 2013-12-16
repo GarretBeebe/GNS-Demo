@@ -1,0 +1,174 @@
+#tabs {
+ float:inherit;
+}
+
+#map-canvas {
+float: left;
+}
+
+#controls {
+  float: left;
+}
+
+#panel {
+float:right;
+}
+
+#controls2 {
+float: left;
+}
+
+#panel2 {
+float:right;
+}
+
+.ui-widget {
+    font-family: 'Open Sans', serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+a:hover {
+    color: #0F75BC;
+}
+
+a {
+    color: #58585A;
+    text-decoration: none;
+}
+
+.ui-widget-content a {
+    color: #58585A;
+    text-decoration: none;
+}
+.ui-widget-content a:hover {
+    color: #0F75BC;
+}
+
+ul {
+    list-style-type: none;
+    list-style-position:inside;
+    margin-left:0;
+    padding-left:8px;
+    padding-top: 0px;
+}
+
+#panel {
+    background-color: #F3F3F4;
+    height: 100%;
+    padding: 10px;
+    border-right: solid #0F75BC 4px;
+    border-left: 1px solid #d3d3d3;
+}
+
+#main-graph-container {
+  float: right;
+  width: 900px;
+  border-right: 1px solid #d3d3d3;
+}
+
+#map-canvas {
+    margin: 10px;
+    padding: 10px;
+    width: 820px;
+}
+
+#graph-container2 {
+    margin: 10px;
+    padding: 10px;
+    width: 840px;
+    float: right;
+}
+
+.menuTitle {
+    font-weight: 800;
+    color: #0F75BC;
+}
+
+#address, #address2 {
+    margin-top: 10px;
+}
+
+.ui-tabs {
+    border-radius: 0px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br, .ui-corner-top, .ui-corner-tr {
+    border-radius: 0px;
+}
+
+.ui-widget-header {
+    background-image: none;
+    background-color: #F3F3F4;
+}
+
+#outer {
+    width: 100%;
+}
+
+#inner {
+    width: 1150px;
+    margin: 0 auto;
+}
+
+.ui-widget-content {
+    border: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background-image: none;
+}
+
+.ui-widget input[type="button"] {
+    background-color: #0F75BC;
+    border-radius:2px;
+    color: #fff;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+input[type="button"]:hover{
+    background-color: #58585A;
+}
+
+#csvButton:hover{
+    background-color: #58585A;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    color: #58585A;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0px;
+}
+
+#header {
+    border-bottom: solid #AAAAAA 1px;
+    margin-bottom: 20px;
+}
+
+.pageTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 200;
+    color: #0F75BC;
+}
+
+.pageSubTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    font-style: italic;
+    color: #58585A;
+    margin-left: 80px;
+}
+
+.resourceLink:link {
+ COLOR: blue;
+}
+
