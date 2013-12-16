@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030053454) do
+ActiveRecord::Schema.define(:version => 20131216023751) do
+
+  create_table "KTVresults", :force => true do |t|
+    t.integer  "patient_id"
+    t.datetime "ktv_date"
+    t.integer  "ktv_result"
+    t.string   "zemplar_usage"
+  end
 
   create_table "locations", :force => true do |t|
     t.decimal  "lat"
@@ -26,6 +33,25 @@ ActiveRecord::Schema.define(:version => 20131030053454) do
     t.integer  "userentered"
     t.string   "sex"
     t.integer  "age"
+  end
+
+  create_table "patients", :force => true do |t|
+    t.string "first_name"
+    t.string "last_name"
+  end
+
+  create_table "providers", :force => true do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "title"
+  end
+
+  create_table "treatments", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "provider_id"
+    t.datetime "month"
+    t.integer  "number_of_missed_appointments"
+    t.string   "zemplar_usage"
   end
 
 end
