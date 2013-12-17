@@ -21,9 +21,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'flot-rails'
-# gem 'geokit-rails3'
 gem 'jbuilder'
-# gem 'geocoder'
 gem 'taps'
 gem 'chronic'
 
@@ -40,9 +38,5 @@ group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'pry'
-  # gem 'rspec'
-  # gem 'rspec-rails'
   gem 'sqlite3'
-  #gem 'factory_girl_rails'
-  #gem 'ruby-debug19', :require => 'ruby-debug'
 end

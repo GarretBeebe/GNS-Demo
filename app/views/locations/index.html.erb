@@ -3,7 +3,8 @@
         <div id="header">
         <table width="100%"><tr>
             <td>
-                 <span class="pageTitle">JourneyTracker</span>
+                <br>
+                <span class="pageTitle">JourneyTracker</span>
             </td>
         </tr></table>
         </div>
@@ -19,44 +20,74 @@
                 <div id="panel">
                   <span class="menuTitle">Timeframe</span>
                   <br>
-                  <input id="startDate" class="startDate" type="textbox" value="12/01/2012" autofocus="true">
+                  <input id="startDate" class="startDate" type="textbox" value="10/01/2012" autofocus="true">
                   <br>
-                  <input id="endDate" class="endDate" type="textbox" value="12/10/2012" autofocus="true">
+                  <input id="endDate" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
                   <br>
+                  <br>
+                  <div id="prescriptions">
+                  <span class="menuTitle">Zemplar Prescription</span>
+                  <ul>
+                  <li><input type="radio" name="zemplar1" value="yes">Zemplar Prescribed</input></li>
+                  <li><input type="radio" name="zemplar1" value="no" checked ="checked">Zemplar Not Prescribed</input></li>
+                  </ul>
+                  </div>
                   <div id="data-types">
                   <span class="menuTitle">Data Types</span>
                   <ul>
-                  <li><input type="radio" name="group1" value="prescriptions" checked ="checked">Current</input></li>
-                  <li><input type="radio" name="group1" value="predicted">Predicted</input></li>
+                  <li><input type="radio" name="group1" value="no" checked ="checked">Actual</input></li>
+                  <li><input type="radio" name="group1" value="yes">Predicted</input></li>
                   </ul>
                   </div>
+                  <div id="patients">
+                  <span class="menuTitle">Patient Selection</span>
+                  <br>
+                  <%= collection_select(:patient_id1, 0, Patient.all, :id, :full_name) %>
+                  </div>
+                  <input id="update-button1" class="datafetcher" type="button" value="Update Graph" />
+                  <br/>
+                  <br/>
                 </div>
               </div>
-            <div id="main-graph-container">
-            <div id="map-canvas" style="width:850px; height:350px"></div>
-            <div id="controls2">
-              <div id="panel2">
-                <div id="graph-container1" style="width:870px; height:130px"></div>
-              </div>
-            </div>
-            </div>
+            <div id="graph-container2" style="width:820px; height:350px"></div>
           </div>
           <div id="tabs-2">
             <div id="controls">
                 <div id="panel">
                   <span class="menuTitle">Timeframe</span>
                   <br>
-                  <input id="startDate2" class="startDate" type="textbox" value="11/01/2013" autofocus="true">
+                  <input id="startDate2" class="startDate" type="textbox" value="10/01/2012" autofocus="true">
                   <br>
                   <input id="endDate2" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
                   <br>
+                  <br>
+                  <div id="prescriptions">
+                  <span class="menuTitle">Zemplar Prescription</span>
+                  <ul>
+                  <li><input type="radio" name="zemplar2" value="yes">Zemplar Prescribed</input></li>
+                  <li><input type="radio" name="zemplar2" value="no" checked ="checked">Zemplar Not Prescribed</input></li>
+                  </ul>
+                  </div>
                   <div id="data-types">
                   <span class="menuTitle">Data Types</span>
                   <ul>
-                  <li><input type="radio" name="group2" value="prescriptions" checked ="checked">Current</input></li>
-                  <li><input type="radio" name="group2" value="predicted">Predicted</input></li>
+                  <li><input type="radio" name="group2" value="no" checked ="checked">Actual</input></li>
+                  <li><input type="radio" name="group2" value="yes">Predicted</input></li>
                   </ul>
                   </div>
+                  <div id="patients">
+                  <span class="menuTitle">Patient Selection</span>
+                  <br>
+                  <%= collection_select(:patient_id2, 0, Patient.all, :id, :full_name) %>
+                  </div>
+                  <div id="providers">
+                  <span class="menuTitle">Provider Selection</span>
+                  <br>
+                  <%= collection_select(:provider_id2, 0, Provider.all, :id, :full_name) %>
+                  </div>
+                  <input id="update-button2" class="datafetcher" type="button" value="Update Graph" />
+                  <br/>
+                  <br/>
                 </div>
               </div>
            <div id="graph-container2" style="width:820px; height:350px"></div>
@@ -69,6 +100,4 @@
         </div>
     </div>
 </div>
-
-
 

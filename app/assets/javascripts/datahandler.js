@@ -2,72 +2,54 @@
 //we need in order to look up data for a given
 //location. Eventually we add more client side
 //data manipulation to this object.
-var dataHandler = function() {
+var DataHandler = function() {
 
-  this.getMapData = function(data, dataType) {
-    var bounds = data[0].geometry.bounds;
-    var results = [];
-    var dataPoints = [];
-
-    if (bounds) {
-      var ne = bounds.getNorthEast();
-      var sw = bounds.getSouthWest();
-      var startDate = $("#startDate").val();
-      var endDate = $("#endDate").val();
-      var sex = $("input[name=group4]:checked").val();
-      var age = $(".age").val();
-      var data = { sw: [sw.lat(), sw.lng()], ne: [ne.lat(), ne.lng()], startDate: startDate, endDate: endDate, dataType: dataType, sex: sex, age: age};
-      var results = $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "/getMapData",
-        data: data,
-        async: false
-      }).responseJSON;
-
-      $.each(results, function(key, value) {
-        dataPoints[key] = new google.maps.LatLng(value.lat, value.lng);
-      });
-
-      return dataPoints;
-    }
+  this.getKTVData = function() {
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    var zemplarUsage = $('input[name=zemplar1]:checked').val();
+    var patientId = $("#patient_id1_0").val()
+    var predicted = $('input[name=group1]:checked').val()
+    var data = { 
+      startDate: startDate, 
+      endDate: endDate, 
+      patientId: patientId, 
+      zemplarUsage: zemplarUsage,
+      predicted: predicted
+    };
+    var results = $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/getKTVData",
+      data: data,
+      async: false
+    }).responseJSON;
+    return results;
   }
 
-  this.addData = function() {
-    var address = $("#popup-address").val();
-    var date = $("#popup-date").val();
-    var sex = $("input[name=group3]:checked").val();
-    var age = $("#popup-age").val();
+  this.getTreatmentData = function() {
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    var patientId = $("#patient_id2_0").val()
+    var providerId = $("#provider_id2_0").val();
+    var zemplarUsage = $('input[name=zemplar2]:checked').val();
+    var predicted = $('input[name=group2]:checked').val()
+    var data = { 
+      startDate: startDate, 
+      endDate: endDate, 
+      patientId: patientId, 
+      providerId: providerID, 
+      zemplarUsage: zemplarUsage,
+      predicted: predicted
+    };
 
-    $.ajax({
-      type: "POST",
-      url: "/addData",
-      data: {sex: sex, age: age, address: address, date: date}
-    });
-  }
-
-  this.getGraphData = function(data, dataType) {
-    var bounds = data[0].geometry.bounds;
-    var results = [];
-    var dataPoints = [];
-
-    if (bounds) {
-      var ne = bounds.getNorthEast();
-      var sw = bounds.getSouthWest();
-      var startDate = $("#startDate").val();
-      var endDate = $("#endDate").val();
-      var sex = $("input[name=group4]:checked").val();
-      var age = $("#age1").val();
-      var data = { sw: [sw.lat(), sw.lng()], ne: [ne.lat(), ne.lng()], startDate: startDate, endDate: endDate, dataType: dataType, sex: sex, age: age};
-      var results = $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "/getGraphData",
-        data: data,
-        async: false
-      }).responseJSON;
-    }
-
+    var results = $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/getTreatmentData",
+      data: data,
+      async: false
+    }).responseJSON;
     return results;
   }
 }
