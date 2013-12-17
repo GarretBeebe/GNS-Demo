@@ -1,8 +1,8 @@
 class Treatment < ActiveRecord::Base
 
-  def self.getDataWithZemplar(startDate, endDate, patientId, providerId, zemplarUsage, predicted)
+  def self.getData(startDate, endDate, patientId, providerId, zemplarUsage, predicted)
     self.find_by_sql(
-      "SELECT month, number_of_missed_appointments, patientID FROM treatments
+      "SELECT month, number_of_missed_appointments, patientId FROM treatments
       where patient_id = #{patientId} 
       and provider_id = #{providerId}
       and month >= '#{startDate}' 

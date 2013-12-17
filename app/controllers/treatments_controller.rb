@@ -12,10 +12,10 @@ class TreatmentsController < ApplicationController
     providerID = params[:providerId]
     zemplarUsage = params[:zemplarUsage]
     predicted = params[:predicted]
-    treatmentResults = Treatment.getDataWithZemplar(startDate, endDate, patientID, zemplarUsage, predicted)
+    results = Treatment.getDataWithZemplar(startDate, endDate, patientId, zemplarUsage, predicted)
 
     respond_to do |format|
-      format.json { render :json => treatmentResults }
+      format.json { render :json => results }
     end
   end
 end
