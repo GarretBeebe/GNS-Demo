@@ -7,7 +7,8 @@ $( document ).ready(function() {
 
   function updateKTVData() {
      graphData = dHandler.getKTVData();
-     gHandler.getGraph(graphData, '#graph-container2');
+     gHandler.getLineGraph(graphData, '#graph-container1');
+     gHandler.getPieGraph(pieData, '#graph-container2');
   }
 
   // function updateTreatmentsData(){

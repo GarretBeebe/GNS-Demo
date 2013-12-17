@@ -21,5 +21,14 @@ var gradient = [
         'rgba(9, 72, 117, 1)'
       ];
 
+var pieData = [
+  { label: "1",  data: 19.5, color: "#4572A7"},
+  { label: "2",  data: 4.5, color: "#80699B"},
+  { label: "3",  data: 36.6, color: "#AA4643"},
+  { label: "4",  data: 2.3, color: "#3D96AE"},
+  { label: "5",  data: 36.3, color: "#89A54E"},
+  { label: "6",  data: 0.8, color: "#3D96AE"}
+];
+
 
 

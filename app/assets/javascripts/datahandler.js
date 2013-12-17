@@ -30,7 +30,6 @@ var DataHandler = function() {
   this.getTreatmentData = function() {
     var startDate = $("#startDate").val();
     var endDate = $("#endDate").val();
-    var patientId = $("#patient_id2_0").val()
     var providerId = $("#provider_id2_0").val();
     var zemplarUsage = $('input[name=zemplar2]:checked').val();
     var predicted = $('input[name=group2]:checked').val()

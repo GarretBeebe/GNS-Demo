@@ -5,8 +5,8 @@ var GraphHandler = function() {
     return options;
   }
 
-  this.getGraph = function(dataPoints, container) {
-    var graphData = this.dataConverter(dataPoints);
+  this.getLineGraph = function(dataPoints, container) {
+    var graphData = this.dateParser(dataPoints);
     var graphOptions = this.getLineOptions(); 
     var dataOptions = {
       label: "KT/V",
@@ -18,7 +18,20 @@ var GraphHandler = function() {
     $.plot($(container), [dataOptions], graphOptions);
   }
 
-  this.dataConverter = function(dataPoints) {
+  this.getPieGraph = function(dataPoints, container) {
+    $.plot($(container), dataPoints, {
+         series: {
+            pie: {
+                show: true
+            }
+         },
+         legend: {
+            labelBoxBorderColor: "none"
+         }
+    });
+  }
+
+  this.dateParser = function(dataPoints) {
     var date;
     var value;
     var i = 0;

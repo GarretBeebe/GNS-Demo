@@ -9,5 +9,6 @@
 //= require jquery.flot
 //= require jquery.flot.resize
 //= require jquery.flot.time
+//= require jquery.flot.pie
 //= require bootstrap
 //= require_tree .
