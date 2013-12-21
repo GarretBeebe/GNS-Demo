@@ -57,7 +57,7 @@ ul {
     background-color: #F3F3F4;
     height: 100%;
     padding: 10px;
-    border-right: solid #0F75BC 4px;
+    border-right: solid #969695 4px;
     border-left: 1px solid #d3d3d3;
 }
 
@@ -120,7 +120,7 @@ ul {
 }
 
 .ui-widget input[type="button"] {
-    background-color: #0F75BC;
+    background-color: #AAD51D;
     border-radius:2px;
     color: #fff;
     font-weight: 800;
@@ -156,7 +156,7 @@ input[type="button"]:hover{
     font-family: 'Open Sans', sans-serif;
     font-size: 36px;
     font-weight: 200;
-    color: #0F75BC;
+    color: #969695;
 }
 
 .pageSubTitle {

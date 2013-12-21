@@ -15,10 +15,6 @@ $( document ).ready(function() {
 
   // }
    
-  // $(".datafetcher").bind("click", function() {
-  //   updateData();
-  // });
-
   $("#update-button1").bind("click", function() {
     updateKTVData();
   });
@@ -58,29 +54,4 @@ $( document ).ready(function() {
       $(value).val($(this).val());
     });
   });
-
-
-  // $("input[name=group1]").change(function() {
-  //   var index = $(this).index('input[name=group1]');
-  //   $('input[name=group2]:nth(' + index + ')').prop('checked', true);
-  //   updateData();
-  // });
-
-  // $("input[name=group2]").change(function() {
-  //   var index = $(this).index('input[name=group2]');
-  //   $('input[name=group1]:nth(' + index + ')').prop('checked', true);
-  //   updateData();
-  // });
-
-  // $("input[name=zemplar1]").change(function() {
-  //   var index = $(this).index('input[name=zemplar1]');
-  //   $('input[name=zemplar2]:nth(' + index + ')').prop('checked', true);
-  //   updateData();
-  // });
-
-  // $("input[name=zemplar2]").change(function() {
-  //   var index = $(this).index('input[name=zemplar1]');
-  //   $('input[name=zemplar1]:nth(' + index + ')').prop('checked', true);
-  //   updateData();
-  // });
 });
