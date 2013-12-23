@@ -1,13 +1,19 @@
 var GraphHandler = function() { 
 
-  this.getLineOptions = function() {
-    options = { lines: { show: true }, points: { show: true }, xaxis: { mode: "time", timeformat: "%m/%d/%y" }};
-    return options;
-  }
-
   this.getLineGraph = function(dataPoints, container) {
+    var start = Date.parse($("#startDate").val());
+    var end = Date.parse($("#endDate").val())
     var graphData = this.dateParser(dataPoints);
-    var graphOptions = this.getLineOptions(); 
+    var graphOptions = { 
+      lines: { show: true }, 
+      points: { show: true }, 
+      xaxis: { 
+        mode: "time", 
+        timeformat: "%m/%d/%y",
+        min: start, 
+        max: end
+      }
+    };
     var dataOptions = {
       label: "KT/V",
       color: '#0F75BC',
@@ -16,6 +22,7 @@ var GraphHandler = function() {
     };
 
     $.plot($(container), [dataOptions], graphOptions);
+    this.initializeslider(graphData, container);
   }
 
   this.getPieGraph = function(dataPoints, container) {
@@ -47,5 +54,39 @@ var GraphHandler = function() {
       row = [];
     }
     return endData;
+  }
+
+  this.initializeslider = function (data, container) {
+    var start = Date.parse($("#startDate").val());
+    var end = Date.parse($("#endDate").val())
+    var newStart = ''
+    var newEnd = ''
+    $("#slider-range").slider({
+      range: true,
+      min: start,
+      max: end,
+      values: [ start, end],
+      slide: function( event, ui ) {
+        var newStart = new Date(ui.values[0]);
+        var newEnd = new Date(ui.values[1]);
+        var graphOptions = { 
+          lines: { show: true }, 
+          points: { show: true }, 
+          xaxis: {
+            mode: "time", 
+            timeformat: "%m/%d/%y" ,
+            min: newStart, 
+            max: newEnd
+          }
+        };
+        var dataOptions = {
+          label: "KT/V",
+          color: '#0F75BC',
+          grid: { borderWidth: 0, color: '#58585A', labelMargin: 10 },
+          data: data
+        };
+        $.plot($(container), [dataOptions], graphOptions); 
+      }
+    });
   }
 }
