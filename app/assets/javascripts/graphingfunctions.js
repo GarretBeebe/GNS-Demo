@@ -1,9 +1,6 @@
-var GraphHandler = function() { 
+var GraphHandler = function() {
 
-  this.getLineGraph = function(dataPoints, container) {
-    var start = Date.parse($("#startDate").val());
-    var end = Date.parse($("#endDate").val())
-    var graphData = this.dateParser(dataPoints);
+  this.getLineGraphOptions = function(start, end) {
     var graphOptions = { 
       lines: { show: true }, 
       points: { show: true }, 
@@ -14,15 +11,30 @@ var GraphHandler = function() {
         max: end
       }
     };
+
+    return graphOptions;
+  }
+
+  this.getDataOptions =function(data) {
     var dataOptions = {
       label: "KT/V",
       color: '#0F75BC',
       grid: { borderWidth: 0, color: '#58585A', labelMargin: 10 },
-      data: graphData
+      data: data
     };
 
+    return dataOptions;
+  }
+
+  this.getLineGraph = function(dataPoints, container) {
+    var start = Date.parse($("#startDate").val());
+    var end = Date.parse($("#endDate").val())
+    var graphData = this.dateParser(dataPoints);
+    var graphOptions = this.getLineGraphOptions(start, end);
+    var dataOptions = this.getDataOptions(graphData);
+
     $.plot($(container), [dataOptions], graphOptions);
-    this.initializeslider(graphData, container);
+    this.initializeSlider(graphData, container);
   }
 
   this.getPieGraph = function(dataPoints, container) {
@@ -56,11 +68,13 @@ var GraphHandler = function() {
     return endData;
   }
 
-  this.initializeslider = function (data, container) {
+  this.initializeSlider = function (data, container) {
     var start = Date.parse($("#startDate").val());
     var end = Date.parse($("#endDate").val())
     var newStart = ''
     var newEnd = ''
+    var sliderGraphHandler = new GraphHandler;
+    
     $("#slider-range").slider({
       range: true,
       min: start,
@@ -69,22 +83,8 @@ var GraphHandler = function() {
       slide: function( event, ui ) {
         var newStart = new Date(ui.values[0]);
         var newEnd = new Date(ui.values[1]);
-        var graphOptions = { 
-          lines: { show: true }, 
-          points: { show: true }, 
-          xaxis: {
-            mode: "time", 
-            timeformat: "%m/%d/%y" ,
-            min: newStart, 
-            max: newEnd
-          }
-        };
-        var dataOptions = {
-          label: "KT/V",
-          color: '#0F75BC',
-          grid: { borderWidth: 0, color: '#58585A', labelMargin: 10 },
-          data: data
-        };
+        var graphOptions = sliderGraphHandler.getLineGraphOptions(newStart, newEnd);
+        var dataOptions =sliderGraphHandler.getDataOptions(data);
         $.plot($(container), [dataOptions], graphOptions); 
       }
     });
