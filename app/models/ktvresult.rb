@@ -7,7 +7,6 @@ class Ktvresult < ActiveRecord::Base
       and ktv_date >= '#{startDate}'
       and ktv_date <= '#{endDate}'
       and zemplar_usage = '#{zemplarUsage}'
-      and predicted = '#{predicted}'
       ORDER BY ktv_date ASC"
     )
   end

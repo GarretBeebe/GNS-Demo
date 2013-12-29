@@ -7,7 +7,6 @@ class Treatment < ActiveRecord::Base
       and month >= '#{startDate}' 
       and month <= '#{endDate}' 
       and zemplar = '#{zemplarUsage}'
-      and predicted = '#{predicted}'
       group_by patient_id"
     )
   end

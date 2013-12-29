@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217030406) do
+ActiveRecord::Schema.define(:version => 20131229224812) do
 
   create_table "ktvresults", :force => true do |t|
     t.integer  "patient_id"
     t.datetime "ktv_date"
     t.float    "ktv_result"
     t.string   "zemplar_usage"
-    t.string   "predicted"
   end
 
   create_table "locations", :force => true do |t|
