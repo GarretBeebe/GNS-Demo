@@ -1,5 +1,7 @@
 class Result < ActiveRecord::Base
 
+  belongs_to :patient
+
   def self.getResults(startDate, endDate, patientId, resultType)
     self.find_by_sql(
       "SELECT date, result FROM results
