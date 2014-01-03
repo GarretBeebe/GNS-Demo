@@ -58,8 +58,8 @@ var GraphHandler = function() {
     var row = [];
 
     for (var i = 0; i <= dataPoints.length - 1; i++) {
-      date = Date.parse(dataPoints[i].ktv_date);
-      value = dataPoints[i].ktv_result;
+      date = Date.parse(dataPoints[i].date);
+      value = dataPoints[i].result;
       row.push(date);
       row.push(value);
       endData.push(row);

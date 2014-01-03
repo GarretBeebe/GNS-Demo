@@ -5,13 +5,11 @@ class TreatmentsController < ApplicationController
   	
   end
 
-  def getTreatmentData
+  def getTreatments
   	startDate = Chronic.parse(params[:startDate])
     endDate = Chronic.parse(params[:endDate])
     providerID = params[:providerId]
-    zemplarUsage = params[:zemplarUsage]
-    predicted = params[:predicted]
-    results = Treatment.getData(startDate, endDate, providerId, zemplarUsage, predicted)
+    results = Treatment.getTreatments(startDate, endDate, providerId)
 
     respond_to do |format|
       format.json { render :json => results }

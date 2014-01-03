@@ -6,15 +6,11 @@ $( document ).ready(function() {
   updateKTVData();
 
   function updateKTVData() {
-     graphData = dHandler.getKTVData();
+     graphData = dHandler.getResults('KT/V');
      gHandler.getLineGraph(graphData, '#graph-container1');
      gHandler.getPieGraph(pieData, '#graph-container2');
   }
-
-  // function updateTreatmentsData(){
-
-  // }
-   
+ 
   $("#update-button1").bind("click", function() {
     updateKTVData();
   });
@@ -42,7 +38,6 @@ $( document ).ready(function() {
       $(value).datepicker({
         onSelect: function() { 
           $(value).val($(this).val());
-          //updateData();
           return true;
         }
       });

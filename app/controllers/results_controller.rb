@@ -1,15 +1,16 @@
-class KtvresultsController < ApplicationController
+class ResultsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
 
   end
 
-  def getKTVData
+  def getResults
     startDate = Chronic.parse(params[:startDate])
     endDate = Chronic.parse(params[:endDate])
     patientId = params[:patientId]
-    results = Ktvresult.getData(startDate, endDate, patientId)
+    resultType = params[:resultType]
+    results = Result.getResults(startDate, endDate, patientId, resultType)
 
     respond_to do |format|
       format.json { render :json => results }

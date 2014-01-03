@@ -11,29 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131229224812) do
-
-  create_table "ktvresults", :force => true do |t|
-    t.integer  "patient_id"
-    t.datetime "ktv_date"
-    t.float    "ktv_result"
-    t.string   "zemplar_usage"
-  end
-
-  create_table "locations", :force => true do |t|
-    t.decimal  "lat"
-    t.decimal  "lng"
-    t.string   "address"
-    t.float    "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "prescription_time"
-    t.integer  "prescriptions"
-    t.integer  "predicted"
-    t.integer  "userentered"
-    t.string   "sex"
-    t.integer  "age"
-  end
+ActiveRecord::Schema.define(:version => 20140103040605) do
 
   create_table "patients", :force => true do |t|
     t.string "first_name"
@@ -44,16 +22,19 @@ ActiveRecord::Schema.define(:version => 20131229224812) do
     t.string "first_name"
     t.string "last_name"
     t.string "title"
-    t.string "zemplar_usage"
-    t.string "predicted"
+  end
+
+  create_table "results", :force => true do |t|
+    t.integer  "patient_id"
+    t.datetime "date"
+    t.float    "result"
+    t.string   "result_type"
   end
 
   create_table "treatments", :force => true do |t|
     t.integer  "patient_id"
     t.integer  "provider_id"
-    t.datetime "month"
-    t.integer  "number_of_missed_appointments"
-    t.string   "zemplar_usage"
+    t.datetime "appointment_date"
   end
 
 end
