@@ -25,10 +25,10 @@ var DataHandler = function() {
     return results;
   }
 
-  this.getTreatments = function() {
+  this.getMissedTreatments = function() {
     var startDate = $("#startDate").val();
     var endDate = $("#endDate").val();
-    var providerId = $("#provider_id2_0").val();
+    var providerId = $("#provider_id4_0").val();
     var data = { 
       startDate: startDate, 
       endDate: endDate, 

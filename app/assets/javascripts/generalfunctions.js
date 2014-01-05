@@ -12,7 +12,7 @@ $( document ).ready(function() {
 
   updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range");
   updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
-  updateData(egfrTypes, egfrIds, "#graph-container4", "#slider-range4");
+  updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
 
   function updateData(types, ids, container, slider) {
     var dataSets = {};
@@ -47,7 +47,7 @@ $( document ).ready(function() {
   });
 
   $("#update-button4").bind("click", function() {
-    updateData(egfrTypes, egfrIds, "#graph-container4", "#slider-range4");
+    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
   });
 
  

@@ -5,11 +5,11 @@ class TreatmentsController < ApplicationController
   	
   end
 
-  def getTreatments
+  def getMissedTreatments
   	startDate = Chronic.parse(params[:startDate])
     endDate = Chronic.parse(params[:endDate])
     providerID = params[:providerId]
-    results = Treatment.getTreatments(startDate, endDate, providerId)
+    results = Treatment.getMissedTreatments(startDate, endDate, providerId)
 
     respond_to do |format|
       format.json { render :json => results }

@@ -14,8 +14,14 @@
 ActiveRecord::Schema.define(:version => 20140103040605) do
 
   create_table "patients", :force => true do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.integer "provider_id"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "sex"
+    t.string  "race"
+    t.string  "gender"
+    t.string  "education"
+    t.string  "access_type"
   end
 
   create_table "providers", :force => true do |t|
@@ -34,7 +40,8 @@ ActiveRecord::Schema.define(:version => 20140103040605) do
   create_table "treatments", :force => true do |t|
     t.integer  "patient_id"
     t.integer  "provider_id"
-    t.datetime "appointment_date"
+    t.datetime "treatment_date"
+    t.string   "missed"
   end
 
 end

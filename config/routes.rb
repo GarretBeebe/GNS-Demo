@@ -1,5 +1,5 @@
 RailsMapTest::Application.routes.draw do
   root :to => 'base#index'
   match '/getResults', :to => 'results#getResults'
-  match '/getTreatments', :to => 'treatments#getTreatments'
+  match '/getMissedTreatments', :to => 'treatments#getMissedTreatments'
 end

@@ -1,8 +1,8 @@
-patient1 = Patient.create(first_name: 'test first', last_name: 'test last')
-
-patient2 = Patient.create(first_name: 'test first 2', last_name: 'test last 2')
-
 provider1 = Provider.create(first_name: 'test first', last_name: 'test last', title: 'MD')
+
+patient1 = provider1.patient.create(first_name: 'test first', last_name: 'test last')
+
+patient2 = provider1.patient.create(first_name: 'test first 2', last_name: 'test last 2')
 
 patient1.result.create([
 { result: 1.5, date: '13/12/2013 0:00', result_type: 'KT/V'},
@@ -87,3 +87,21 @@ patient2.result.create([
 { result: 1.5, date: '13/6/2013 0:00', result_type: 'Vitamin D'},
 { result: 1.2, date: '13/5/2013 0:00', result_type: 'Vitamin D'}
 ])
+
+patient1.treatment.create([
+{ provider_id: patient1.provider_id, treatment_date: '13/12/2013 0:00', missed: 'yes'},
+{ provider_id: patient1.provider_id, treatment_date: '25/12/2013 0:00', missed: 'yes'},
+{ provider_id: patient1.provider_id, treatment_date: '13/11/2013 0:00', missed: 'yes'},
+{ provider_id: patient1.provider_id, treatment_date: '13/10/2013 0:00', missed: 'yes'},
+{ provider_id: patient1.provider_id, treatment_date: '13/09/2013 0:00', missed: 'yes'},
+{ provider_id: patient1.provider_id, treatment_date: '06/09/2013 0:00', missed: 'yes'},
+])
+
+patient2.treatment.create([
+{ provider_id: patient2.provider_id, treatment_date: '13/08/2013 0:00', missed: 'yes'},
+{ provider_id: patient2.provider_id, treatment_date: '13/07/2013 0:00', missed: 'yes'},
+{ provider_id: patient2.provider_id, treatment_date: '21/07/2013 0:00', missed: 'yes'},
+{ provider_id: patient2.provider_id, treatment_date: '13/06/2013 0:00', missed: 'yes'},
+{ provider_id: patient2.provider_id, treatment_date: '13/05/2013 0:00', missed: 'yes'},
+])
+

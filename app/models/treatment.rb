@@ -1,12 +1,19 @@
 class Treatment < ActiveRecord::Base
 
-  def self.getTreatments(startDate, endDate, providerId)
-    self.find_by_sql(
-      "SELECT month, number_of_missed_appointments, patientId FROM treatments
-      and provider_id = #{providerId}
-      and month >= '#{startDate}' 
-      and month <= '#{endDate}' 
-      group_by patient_id"
-    )
-  end
+	belongs_to :provider
+	belongs_to :patient
+
+	def self.getMissedTreatments(startDate, endDate, providerId)
+		self.find_by_sql(
+			"SELECT patient_id, treatment_month, count(*)
+			 FROM
+				(SELECT patient_id, date_trunc('month', treatment_date) as treatment_month
+ 				 FROM treatments
+ 				 WHERE provider_id = #{patientId} 
+      			 AND treatment_date >= '#{startDate}'
+      			 AND treatment_date <= '#{endDate}') as a
+ 			 GROUP BY patient_id, treatment_month
+ 			 ORDER BY treatment_month asc"
+		)
+	end
 end

@@ -1,141 +1,144 @@
 <div id="outer">
     <div id="inner">
-        <div id="header">
-        <table width="100%"><tr>
+      <div id="header">
+        <table width="100%">
+          <tr>
             <td>
-                 <br>
-                 <span class="pageTitle">JourneyTracker</span>
+             <br>
+             <span class="pageTitle">JourneyTracker</span>
             </td>
-        </tr></table>
+          </tr>
+        </table>
+      </div>
+      <div id="tabs">
+        <ul>
+          <li><span class="menuTitle"><a href="#tabs-1">KT/V</a></span></li>
+          <li><span class="menuTitle"><a href="#tabs-2">eGFR</a></span></li>
+          <li><span class="menuTitle"><a href="#tabs-3">Metrics</a></span></li>
+          <li><span class="menuTitle"><a href="#tabs-4">Missed Treatments</a></span></li>
+        </ul>
+        <div id="tabs-1">
+          <div class = "controls">
+            <div class ="panel">
+              <span class="menuTitle">Timeframe</span>
+              <br>
+              <input id="startDate" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
+              <br>
+              <input id="endDate" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
+              <br>
+              <br>
+              <span class="menuTitle">Patient Selection</span>
+              <br>
+              <%= collection_select(:patient_id1, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
+              <br>
+              <br>
+              <br>
+              <input type="checkbox" id="ktv" value="KT/V" checked="true" hidden = "true">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <input id="update-button" class = "updateButton" type="button" value="Update Graph" />
+            </div>
+          </div>
+         <div id = "graph-container1" class = "graph-container" style="width:820px; height:350px"></div>
+         <div class = "controls2">
+            <div class = "panel2">
+              <div id="slider-range" style="width:820px;"></div>
+            </div>
+         </div>
         </div>
-        <div id="tabs">
-          <ul>
-            <li><span class="menuTitle"><a href="#tabs-1">KT/V</a></span></li>
-            <li><span class="menuTitle"><a href="#tabs-2">Missed Treatments </a></span></li>
-            <li><span class="menuTitle"><a href="#tabs-3">Metrics</a></span></li>
-            <li><span class="menuTitle"><a href="#tabs-4">eGFR</a></span></li>
-          </ul>
-          <div id="tabs-1">
-            <div class = "controls">
-                <div class ="panel">
-                  <span class="menuTitle">Timeframe</span>
-                  <br>
-                  <input id="startDate" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
-                  <br>
-                  <input id="endDate" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
-                  <br>
-                  <br>
-                  <span class="menuTitle">Patient Selection</span>
-                  <br>
-                  <%= collection_select(:patient_id1, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
-                  <br>
-                  <br>
-                  <br>
-                  <input type="checkbox" id="ktv" value="KT/V" checked="true" hidden = "true">
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <input id="update-button" class = "updateButton" type="button" value="Update Graph" />
-                </div>
-            </div>
-           <div id = "graph-container1" class = "graph-container" style="width:820px; height:350px"></div>
-           <div class = "controls2">
-              <div class = "panel2">
-                <div id="slider-range" style="width:820px;"></div>
-              </div>
+        <div id="tabs-2">
+          <div class = "controls">
+            <div class ="panel">
+              <span class="menuTitle">Timeframe</span>
+              <br>
+              <input id="startDate2" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
+              <br>
+              <input id="endDate2" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
+              <br>
+              <br>
+              <span class="menuTitle">Patient Selection</span>
+              <br>
+              <%= collection_select(:patient_id2, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
+              <br>
+              <span class="menuTitle">Measure Selection</span>
+              <br>
+              <input type="checkbox" id="eGFR" value="eGFR" checked="true">eGFR
+              <br>
+              <input type="checkbox" id="creatinine" value="Creatinine" checked="true">Creatinine
+              <br>
+              <br>
+              <input id="update-button2" class = "updateButton" type="button" value="Update Graph" />
             </div>
           </div>
-          <div id="tabs-2">
-            <div class = "controls">
-                <div class ="panel">
-                  <span class="menuTitle">Timeframe</span>
-                  <br>
-                  <input id="startDate2" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
-                  <br>
-                  <input id="endDate2" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
-                  <br>
-                  <br>
-                  <div id="providers">
-                  <span class="menuTitle">Provider Selection</span>
-                  <br>
-                  <%= collection_select(:provider_id2, 0, Provider.all, :id, :full_name) %>
-                  </div>
-                  <input id="update-button2" class = "updateButton" type="button" value="Update Graph" />
-                </div>
-              </div>
-           <div id = "graph-container2" class = "graph-container" style="width:820px; height:350px"></div>
-          </div>
-          <div id="tabs-3">
-            <div class = "controls">
-                <div class = "panel">
-                  <span class="menuTitle">Timeframe</span>
-                  <br>
-                  <input id="startDate3" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
-                  <br>
-                  <input id="endDate3" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
-                  <br>
-                  <br>
-                  <span class="menuTitle">Patient Selection</span>
-                  <br>
-                  <%= collection_select(:patient_id3, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
-                  <br>
-                  <span class="menuTitle">Metric Selection</span>
-                  <br>
-                  <input type="checkbox" id="iPTH" value="iPTH" checked="true">iPTH
-                  <br>
-                  <input type="checkbox" id="calcium" value="Calcium" checked="true">Calcium
-                  <br>
-                  <input type="checkbox" id="vitaminD" value="Vitamin D" checked="true">Vitamin D
-                  <br>
-                  <br>
-                  <input id="update-button3" class = "updateButton" type="button" value="Update Graph" />
-                </div>
+         <div id = "graph-container2" class = "graph-container" style="width:820px; height:350px"></div>
+         <div class = "controls2">
+            <div class = "panel2">
+              <div id="slider-range2" style="width:820px;"></div>
             </div>
-           <div id = "graph-container3" class = "graph-container" style="width:820px; height:350px"></div>
-           <div class = "controls2">
-              <div class ="panel3">
-                <div id="slider-range3" style="width:820px;"></div>
-              </div>
-           </div>
-          </div>
-          <div id="tabs-4" >
-            <div class = "controls">
-                <div class = "panel">
-                  <span class="menuTitle">Timeframe</span>
-                  <br>
-                  <input id="startDate4" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
-                  <br>
-                  <input id="endDate4" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
-                  <br>
-                  <br>
-                  <span class="menuTitle">Patient Selection</span>
-                  <br>
-                  <%= collection_select(:patient_id4, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
-                  <br>
-                  <span class="menuTitle">Metric Selection</span>
-                  <br>
-                  <input type="checkbox" id="eGFR" value="eGFR" checked="true">eGFR
-                  <br>
-                  <input type="checkbox" id="creatinine" value="Creatinine" checked="true">Creatinine
-                  <br>
-                  <br>
-                  <input id="update-button4" class = "updateButton" type="button" value="Update Graph" />
-                </div>
-              </div>
-           <div id = "graph-container4" class = "graph-container" style="width:820px; height:350px"></div>
-           <div class = "controls2">
-              <div class = "panel4">
-                <div id="slider-range4" style="width:820px;"></div>
-              </div>
+         </div>
+        </div>
+        <div id="tabs-3">
+          <div class = "controls">
+            <div class = "panel">
+              <span class="menuTitle">Timeframe</span>
+              <br>
+              <input id="startDate3" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
+              <br>
+              <input id="endDate3" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
+              <br>
+              <br>
+              <span class="menuTitle">Patient Selection</span>
+              <br>
+              <%= collection_select(:patient_id3, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
+              <br>
+              <span class="menuTitle">Measure Selection</span>
+              <br>
+              <input type="checkbox" id="iPTH" value="iPTH" checked="true">iPTH
+              <br>
+              <input type="checkbox" id="calcium" value="Calcium" checked="true">Calcium
+              <br>
+              <input type="checkbox" id="vitaminD" value="Vitamin D" checked="true">Vitamin D
+              <br>
+              <br>
+              <input id="update-button3" class = "updateButton" type="button" value="Update Graph" />
             </div>
           </div>
+         <div id = "graph-container3" class = "graph-container" style="width:820px; height:350px"></div>
+         <div class = "controls2">
+            <div class ="panel2">
+              <div id="slider-range3" style="width:820px;"></div>
+            </div>
+         </div>
+        </div>
+        <div id="tabs-4" >
+          <div class = "controls">
+            <div class = "panel">
+              <span class="menuTitle">Timeframe</span>
+              <br>
+              <input id="startDate4" class="startDate" type="textbox" value="04/01/2013" autofocus="true">
+              <br>
+              <input id="endDate4" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
+              <br>
+              <br>
+              <div id="providers">
+              <span class="menuTitle">Provider Selection</span>
+              <br>
+              <%= collection_select(:provider_id4, 0, Provider.all, :id, :full_name) %>
+              </div>
+              <input id="update-button4" class = "updateButton" type="button" value="Update Graph" />
+            </div>
+          </div>
+         <div id = "graph-container4" class = "graph-container" style="width:820px; height:350px"></div>
+        </div>
         </div>
         <br>
         <br>
-        <table width="100%"><tr>
+        <table width="100%">
+          <tr>
             <td>
                  <span class="footerText">Powered By</span>
                  <br>
@@ -144,7 +147,8 @@
             <br>
             <img src="/assets/abbvie.jpg" height="70px">
             </td>
-        </tr></table>
+          </tr>
+        </table>
     </div>
 </div>
 
