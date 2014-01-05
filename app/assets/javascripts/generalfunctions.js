@@ -46,7 +46,7 @@ $( document ).ready(function() {
     updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
   });
 
-  $("#update-button4").bind("click", function() {
+  $("#update-button2").bind("click", function() {
     updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
   });
 
