@@ -31,7 +31,7 @@
               <br>
               <%= collection_select(:patient_id1, 0, Patient.all, :id, :full_name, {}, {:class=>'patientId'}) %>
               <br>
-              <br>
+              <input id="update-button" class = "updateButton" type="button" value="Update Graph" />
               <br>
               <input type="checkbox" id="ktv" value="KT/V" checked="true" hidden = "true">
               <br>
@@ -40,7 +40,7 @@
               <br>
               <br>
               <br>
-              <input id="update-button" class = "updateButton" type="button" value="Update Graph" />
+              <br>
             </div>
           </div>
          <div id = "graph-container1" class = "graph-container" style="width:820px; height:350px"></div>
