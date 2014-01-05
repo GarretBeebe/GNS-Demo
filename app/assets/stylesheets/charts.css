@@ -1,26 +1,7 @@
- #graph-container1 {
+ .graph-container {
  	float: right;
     width: 1100px;
     height: 300px;
      margin-top: 20px;
 }
 
- #graph-container2 {
-    width: 1100px;
-    height: 300px;
-     margin-top: 20px;
-}
-
-#graph-container3 {
-    float: right;
-    width: 1100px;
-    height: 300px;
-     margin-top: 20px;
-}
-
-#graph-container4 {
-    float: right;
-    width: 1100px;
-    height: 300px;
-     margin-top: 20px;
-}

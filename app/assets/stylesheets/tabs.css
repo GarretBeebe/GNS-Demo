@@ -2,23 +2,25 @@
  float:inherit;
 }
 
-#map-canvas {
-float: left;
-}
-
-#controls {
+.controls {
   float: left;
+  height: 350px;
 }
 
-#panel {
-float:right;
-}
-
-#controls2 {
+.controls2 {
 float: right;
 }
 
-#panel2 {
+.panel {
+    background-color: #F3F3F4;
+    height: 100%;
+    padding: 10px;
+    border-right: solid #969695 4px;
+    border-left: 1px solid #d3d3d3;
+    float:right;
+}
+
+.panel2 {
 float:right;
 }
 
@@ -43,41 +45,6 @@ a {
 }
 .ui-widget-content a:hover {
     color: #0F75BC;
-}
-
-ul {
-    list-style-type: none;
-    list-style-position:inside;
-    margin-left:0;
-    padding-left:8px;
-    padding-top: 0px;
-}
-
-#panel {
-    background-color: #F3F3F4;
-    height: 100%;
-    padding: 10px;
-    border-right: solid #969695 4px;
-    border-left: 1px solid #d3d3d3;
-}
-
-#main-graph-container {
-  float: right;
-  width: 900px;
-  border-right: 1px solid #d3d3d3;
-}
-
-#map-canvas {
-    margin: 10px;
-    padding: 10px;
-    width: 820px;
-}
-
-#graph-container2 {
-    margin: 10px;
-    padding: 10px;
-    width: 840px;
-    float: right;
 }
 
 .menuTitle {
@@ -174,8 +141,3 @@ input[type="button"]:hover{
     color: #58585A;
     margin-left: 80px;
 }
-
-.resourceLink:link {
- COLOR: blue;
-}
-

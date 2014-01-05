@@ -5,15 +5,16 @@
 var DataHandler = function() {
 
   this.getResults = function(resultType) {
-    var startDate = $("#startDate").val();
-    var endDate = $("#endDate").val();
-    var patientId = $("#patient_id1_0").val()
+    var start = $("#startDate").val();
+    var end = $("#endDate").val();
+    var patient = $("#patient_id1_0").val()
     var data = { 
-      startDate: startDate, 
-      endDate: endDate, 
-      patientId: patientId,
+      startDate: start, 
+      endDate: end, 
+      patientId: patient,
       resultType: resultType
     };
+
     var results = $.ajax({
       type: "GET",
       dataType: "json",
