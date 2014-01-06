@@ -11,8 +11,9 @@ $( document ).ready(function() {
   var egfrIds = ["#eGFR", "#creatinine"];
 
   updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range");
-  updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
   updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
+  updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
+  updateMissedTreatments("#graph-container4");
 
   function updateData(types, ids, container, slider) {
     var dataSets = {};
@@ -36,6 +37,12 @@ $( document ).ready(function() {
     });
     
     gHandler.getLineGraph(data, container, slider);
+  }
+
+  function updateMissedTreatments(container) {
+    treatments = dHandler.getMissedTreatments();
+    barData = gHandler.treatmentsParser(treatments);
+    gHandler.getBarGraph(barData, container);
   }
 
   $("#update-button").bind("click", function() {

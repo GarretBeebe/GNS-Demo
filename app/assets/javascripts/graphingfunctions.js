@@ -41,6 +41,33 @@ var GraphHandler = function() {
     return endData;
   }
 
+  this.treatmentsParser = function(data) {
+    var currentId;
+    var rowDataElement = [];
+    var rowData = [];
+    var row = {};
+    var endData = [];
+    var i = 0;
+
+    while (i <= (data.length - 1)) {
+      currentId = data[i].patient_id;
+        while (data[i].patient_id == currentId) {
+          rowDataElement =[Date.parse(data[i].treatment_month), data[i].count]
+          rowData.push(rowDataElement);
+          i++
+          if (i == data.length) {
+            break
+          }
+        }
+        row = {label: currentId, data: rowData};
+        endData.push(row);
+        rowDataElement = [];
+        rowData = [];
+        row = {};
+    }
+    return endData;
+  }
+
   this.initializeSlider = function (data, container, sliderContainer, start, end) {
     var newStart = ''
     var newEnd = ''
@@ -60,16 +87,30 @@ var GraphHandler = function() {
     });
   }
 
-  this.getPieGraph = function(dataPoints, container) {
-    $.plot($(container), dataPoints, {
-         series: {
-            pie: {
-                show: true
-            }
-         },
-         legend: {
-            labelBoxBorderColor: "none"
-         }
-    });
+  this.getBarGraph = function(dataPoints, container) {
+    var barOptions = { 
+      bars: { show: true, barWidth: 0.6, series_spread: true, align: "center" }, 
+      grid: { hoverable: true, clickable: true },
+      xaxis: { 
+        autoscaleMargin: .10, 
+        mode: "time", 
+        timeformat: "%m/%d/%y"//,
+        // min: start, 
+        // max: end
+      }
+    };
+
+    $.plot($(container), dataPoints, barOptions);
+
+    // var ms_data = [{"label":"FOO","data":[[0,80],[1,70],[2,100],[3,60],[4,102]]},
+    //              {"label":"BAR","data":[[0,10],[1,20],[2,30],[3,40],[4,80]]},
+    //              {"label":"CAR","data":[[0,5],[1,10],[2,15],[3,20],[4,25]]}]
+    // var ms_ticks = [[0,"1/28"],[1,"1/29"],[2,"1/30"],[3,"1/31"],[4,"1/32"]];
+
+    // $.plot($(container), ms_data, {
+    //   bars: { show: true, barWidth: 0.6, series_spread: true, align: "center" },
+    //   xaxis: { ticks: ms_ticks, autoscaleMargin: .10 },
+    //   grid: { hoverable: true, clickable: true }
+    // });
   }
 }

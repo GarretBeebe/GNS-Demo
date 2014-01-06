@@ -98,8 +98,8 @@ patient1.treatment.create([
 ])
 
 patient2.treatment.create([
-{ provider_id: patient2.provider_id, treatment_date: '13/08/2013 0:00', missed: 'yes'},
-{ provider_id: patient2.provider_id, treatment_date: '13/07/2013 0:00', missed: 'yes'},
+{ provider_id: patient2.provider_id, treatment_date: '13/12/2013 0:00', missed: 'yes'},
+{ provider_id: patient2.provider_id, treatment_date: '25/07/2013 0:00', missed: 'yes'},
 { provider_id: patient2.provider_id, treatment_date: '21/07/2013 0:00', missed: 'yes'},
 { provider_id: patient2.provider_id, treatment_date: '13/06/2013 0:00', missed: 'yes'},
 { provider_id: patient2.provider_id, treatment_date: '13/05/2013 0:00', missed: 'yes'},

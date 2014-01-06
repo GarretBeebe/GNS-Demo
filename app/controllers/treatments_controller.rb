@@ -8,7 +8,7 @@ class TreatmentsController < ApplicationController
   def getMissedTreatments
   	startDate = Chronic.parse(params[:startDate])
     endDate = Chronic.parse(params[:endDate])
-    providerID = params[:providerId]
+    providerId = params[:providerId]
     results = Treatment.getMissedTreatments(startDate, endDate, providerId)
 
     respond_to do |format|

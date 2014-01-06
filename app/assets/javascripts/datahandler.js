@@ -31,15 +31,14 @@ var DataHandler = function() {
     var providerId = $("#provider_id4_0").val();
     var data = { 
       startDate: startDate, 
-      endDate: endDate, 
-      patientId: patientId, 
-      providerId: providerID
+      endDate: endDate,  
+      providerId: providerId
     };
 
     var results = $.ajax({
       type: "GET",
       dataType: "json",
-      url: "/getTreatments",
+      url: "/getMissedTreatments",
       data: data,
       async: false
     }).responseJSON;
