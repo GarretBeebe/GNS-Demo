@@ -49,12 +49,16 @@ $( document ).ready(function() {
     updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range");
   });
 
+  $("#update-button2").bind("click", function() {
+    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
+  });
+
   $("#update-button3").bind("click", function() {
     updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
   });
 
-  $("#update-button2").bind("click", function() {
-    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
+  $("#update-button4").bind("click", function() {
+    updateMissedTreatments("#graph-container4");
   });
 
  
