@@ -89,7 +89,7 @@ var GraphHandler = function() {
 
   this.getBarGraph = function(dataPoints, container) {
     var barOptions = { 
-      bars: { show: true, barWidth: 0.6, series_spread: true, align: "center" }, 
+      bars: { show: true, barWidth: 15*24*60*60*1000, series_spread: true, align: "center" }, 
       grid: { hoverable: true, clickable: true },
       xaxis: { 
         autoscaleMargin: .10, 
