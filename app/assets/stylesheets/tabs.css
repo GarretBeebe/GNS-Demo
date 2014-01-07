@@ -122,6 +122,14 @@ input[type="button"]:hover{
     color: #969695;
 }
 
+.trademark {
+    position: relative;
+    bottom: 1.8em;
+    font-size: 10px;
+    font-weight: 200;
+    color: #969695;
+}
+
 .footerText {
     font-family: 'Open Sans', sans-serif;
     font-size: 10px;
