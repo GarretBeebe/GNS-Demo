@@ -10,18 +10,18 @@ $( document ).ready(function() {
   var egfrTypes = ['eGFR', 'Creatinine'];
   var egfrIds = ["#eGFR", "#creatinine"];
 
-  updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range", "#patient_id1_0");
-  updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2", "#patient_id2_0");
-  updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3", "#patient_id3_0");
+  updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range", "#patient_id1_0", "#startDate", "#endDate");
+  updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2", "#patient_id2_0", "#startDate2", "#endDate2");
+  updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3", "#patient_id3_0", "#startDate3", "#endDate3");
   updateMissedTreatments("#graph-container4");
 
-  function updateData(types, ids, container, slider, patient) {
+  function updateData(types, ids, container, slider, patient, start, end) {
     var dataSets = {};
     var data = [];
     var i = 0;
 
     $.each(types, function(index, value){
-      graphData = dHandler.getResults(value, patient);
+      graphData = dHandler.getResults(value, patient, start, end);
       dataSets[value] = {label: value, data: gHandler.dateParser(graphData)}
     });
 
@@ -46,15 +46,15 @@ $( document ).ready(function() {
   }
 
   $("#update-button").bind("click", function() {
-    updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range", "#patient_id1_0");
+    updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range", "#patient_id1_0", "#startDate", "#endDate");
   });
 
   $("#update-button2").bind("click", function() {
-    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2", "#patient_id2_0");
+    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2", "#patient_id2_0", "#startDate2", "#endDate2");
   });
 
   $("#update-button3").bind("click", function() {
-    updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3", "#patient_id3_0");
+    updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3", "#patient_id3_0", "#startDate3", "#endDate3");
   });
 
   $("#update-button4").bind("click", function() {
@@ -67,17 +67,14 @@ $( document ).ready(function() {
     }
   });
 
-
-  //decoupling tab features
-  // $(function() {
-  //   $.each([".startDate", ".endDate"], function(index, value){
-  //     $(value).datepicker({
-  //       onSelect: function() { 
-  //         $(value).val($(this).val());
-  //       }
-  //     });
-  //   });
-  // });
+  $(function() {
+    $.each([".startDate", ".endDate"], function(index, value){
+      $(value).datepicker({
+        onSelect: function() {
+        }
+      });
+    });
+  });
 
   // $.each([".patientId"], function(index, value) {
   //   $(value).change(function() { 

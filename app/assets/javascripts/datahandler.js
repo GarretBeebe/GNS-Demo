@@ -4,9 +4,9 @@
 //data manipulation to this object.
 var DataHandler = function() {
 
-  this.getResults = function(resultType, patient) {
-    var start = $("#startDate").val();
-    var end = $("#endDate").val();
+  this.getResults = function(resultType, patient, start, end) {
+    var start = $(start).val();
+    var end = $(end).val();
     var patient = $(patient).val()
     var data = { 
       startDate: start, 
@@ -26,8 +26,8 @@ var DataHandler = function() {
   }
 
   this.getMissedTreatments = function() {
-    var startDate = $("#startDate").val();
-    var endDate = $("#endDate").val();
+    var startDate = $("#startDate4").val();
+    var endDate = $("#endDate4").val();
     var providerId = $("#provider_id4_0").val();
     var data = { 
       startDate: startDate, 
