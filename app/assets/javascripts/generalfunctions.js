@@ -67,6 +67,8 @@ $( document ).ready(function() {
     }
   });
 
+
+  //decoupling tab features
   // $(function() {
   //   $.each([".startDate", ".endDate"], function(index, value){
   //     $(value).datepicker({
