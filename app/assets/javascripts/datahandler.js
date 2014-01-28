@@ -4,10 +4,10 @@
 //data manipulation to this object.
 var DataHandler = function() {
 
-  this.getResults = function(resultType) {
+  this.getResults = function(resultType, patient) {
     var start = $("#startDate").val();
     var end = $("#endDate").val();
-    var patient = $("#patient_id1_0").val()
+    var patient = $(patient).val()
     var data = { 
       startDate: start, 
       endDate: end, 

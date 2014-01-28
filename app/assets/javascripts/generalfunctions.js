@@ -10,18 +10,18 @@ $( document ).ready(function() {
   var egfrTypes = ['eGFR', 'Creatinine'];
   var egfrIds = ["#eGFR", "#creatinine"];
 
-  updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range");
-  updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
-  updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
+  updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range", "#patient_id1_0");
+  updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2", "#patient_id2_0");
+  updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3", "#patient_id3_0");
   updateMissedTreatments("#graph-container4");
 
-  function updateData(types, ids, container, slider) {
+  function updateData(types, ids, container, slider, patient) {
     var dataSets = {};
     var data = [];
     var i = 0;
 
     $.each(types, function(index, value){
-      graphData = dHandler.getResults(value);
+      graphData = dHandler.getResults(value, patient);
       dataSets[value] = {label: value, data: gHandler.dateParser(graphData)}
     });
 
@@ -46,15 +46,15 @@ $( document ).ready(function() {
   }
 
   $("#update-button").bind("click", function() {
-    updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range");
+    updateData(ktvTypes, ktvIds, "#graph-container1", "#slider-range", "#patient_id1_0");
   });
 
   $("#update-button2").bind("click", function() {
-    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2");
+    updateData(egfrTypes, egfrIds, "#graph-container2", "#slider-range2", "#patient_id2_0");
   });
 
   $("#update-button3").bind("click", function() {
-    updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3");
+    updateData(metricsTypes, metricsIds, "#graph-container3", "#slider-range3", "#patient_id3_0");
   });
 
   $("#update-button4").bind("click", function() {
@@ -67,19 +67,19 @@ $( document ).ready(function() {
     }
   });
 
-  $(function() {
-    $.each([".startDate", ".endDate"], function(index, value){
-      $(value).datepicker({
-        onSelect: function() { 
-          $(value).val($(this).val());
-        }
-      });
-    });
-  });
+  // $(function() {
+  //   $.each([".startDate", ".endDate"], function(index, value){
+  //     $(value).datepicker({
+  //       onSelect: function() { 
+  //         $(value).val($(this).val());
+  //       }
+  //     });
+  //   });
+  // });
 
-  $.each([".patientId"], function(index, value) {
-    $(value).change(function() { 
-      $(value).val($(this).val());
-    });
-  });
+  // $.each([".patientId"], function(index, value) {
+  //   $(value).change(function() { 
+  //     $(value).val($(this).val());
+  //   });
+  // });
 });
