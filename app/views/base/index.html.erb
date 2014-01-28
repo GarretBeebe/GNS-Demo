@@ -117,25 +117,26 @@
               <input id="endDate4" class="endDate" type="textbox" value="12/25/2013" autofocus="true">
               <br>
               <br>
-              <div id="providers">
               <span class="menuTitle">Provider Selection</span>
               <br>
               <%= collection_select(:provider_id4, 0, Provider.all, :id, :full_name) %>
-              </div>
+              <br>
               <input id="update-button4" class = "updateButton" type="button" value="Update Graph" />
             </div>
           </div>
          <div id = "graph-container4" class = "graph-container" style="width:820px; height:350px"></div>
+         <div class = "controls2" style="height:11px">
+            <div class ="panel2" style="height:11px">
+              <div style="width:820px; height:11px"></div>
+            </div>
+         </div>
         </div>
-        </div>
-        <br>
-        <br>
         <table width="100%">
           <tr>
             <td>
-                 <span class="footerText">Powered By</span>
-                 <br>
-                 <img src="/assets/GNS_Logo.jpg" height="70px">
+              <span class="footerText">Powered By</span>
+               <br>
+               <img src="/assets/GNS_Logo.jpg" height="70px">
             </td><td align="right">
             <br>
             <img src="/assets/abbvie.jpg" height="70px">
