@@ -1,0 +1,23 @@
+== GNS-Demo Setup
+
+1. Run:
+    mkdir gns-demo
+2. Run:
+    cd gns-demo
+3. Clone gns-demo repo.
+4. Install postgres on your local system.
+5. Run:
+    gem install bundler
+6. Run:
+    bundle
+7. In the gns-demo directory, run:
+    cp config/database.yml.example config/database.yml
+8. Modfy the .env file to include your db credentials.
+7. Run:
+    RAILS_ENV=YOUR_ENVIRONMENT rake db:create
+9. Run:
+    RAILS_ENV=YOUR_ENVIRONMENT rake db:seed
+10. Once the db creation is complete, start the server from the cms-demo directory:
+         RAILS_ENV=YOUR_ENVIRONMENT rails s -p 8080
+11. Visit:
+        http://localhost:8080
